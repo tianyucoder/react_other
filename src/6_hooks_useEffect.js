@@ -1,4 +1,4 @@
-import React, { Component,useState,useEffect,useRef} from 'react'
+import React, { Component,useState,useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 //使用类形式定义组件
@@ -36,11 +36,9 @@ import ReactDOM from 'react-dom'
 
 //使用函数式定义组件
 
-export default function App (props){
-	console.log(props);
+export default function App (){
 	const [count,setCount] = useState(0)
 	const [name,setName] = useState('tom')
-	const myRef = useRef()
 
 	useEffect(()=>{
 		let timer = setInterval(()=>{
@@ -58,16 +56,10 @@ export default function App (props){
 	function death(){
 		ReactDOM.unmountComponentAtNode(document.getElementById('root'))
 	}
-
-	function show (){
-		alert(myRef.current.value)
-	}
 	
 	return (
 		<div>
 			<h1>当前的count值为:{count}</h1>
-			<input ref={myRef} type="text" placeholder="请你输入一些文字"/>
-			<button onClick={show}>点我提示用户输入</button>
 			<button onClick={add}>点我+1</button>
 			<button onClick={death}>卸载组件</button>
 		</div>
